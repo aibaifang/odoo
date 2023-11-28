@@ -10,7 +10,7 @@
         Long description of module's purpose
     """,
 
-    'author': "My Company",
+    'author': "aibaifang",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -25,11 +25,10 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'subject_view.xml',`
     ],
     # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
+   # 'demo': [
+   #     'demo/demo.xml',
     ],
 }
