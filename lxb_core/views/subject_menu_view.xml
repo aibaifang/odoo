@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo><data>
+    <menuitem name="科目管理" 
+        id="menu_subject_root"
+        groups=""/
+        sequence="185"/>
+    <menuitem name="科目1"
+        id="menu_subject_root_subject"
+        action="act_open_lxb_subject_view_tree"
+        parent="menu_subject_root"
+        sequence="1"/>
+    <menuitem name="科目2"
+        id="menu_subject_root_subject2"
+        action="act_open_lxb_subject_view_form"
+        parent="menu_subject_root"
+        sequence="2"/>
+</odoo><data>

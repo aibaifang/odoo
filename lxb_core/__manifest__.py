@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "lxb_core",
+    'name': "培训管理系统",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        培训管理系统""",
 
     'description': """
-        Long description of module's purpose
+        培训管理系统
     """,
 
     'author': "aibaifang",
@@ -25,10 +24,11 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'subject_view.xml',`
+        'views/subject_view.xml',
+        'views/subject_menu_view.xml',
+        'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode
    # 'demo': [
    #     'demo/demo.xml',
-    ],
 }

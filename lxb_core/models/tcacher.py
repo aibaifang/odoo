@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 
 class LxbTeacher(models.Model):
     _name = "lxb.teacher"
-    _description = "LXB Teacher"
+    _description = "教师模型"
     _inherits = {"res.partner": "partner_id"}
 
     partner_id = fields.Many2one('res.partner', required=True, ondelete='cascade', string='合作伙伴')
