@@ -32,17 +32,30 @@
                 </form>
             </field>
         </record>
+        <!-- 搜索视图，增加 类别、科目类型、科目编码 -->
+        <record model="ir.ui.view" id="lxb_subject_view_search">
+            <field name="name">lxb_subject_search</field>
+            <field name="model">lxb.subject</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="code"/>
+                    <field name="subject_type"/>
+                </search>
+            </field>
+        </record>
 
         <record model="ir.actions.act_window" id="act_open_lxb_subject_view">
-            <field name="name">科目</field>
-            <field name="type">ir.actions.act_window</field>
+            <field name="name">科目管理</field>
+            <!-- <field name="type">ir.actions.act_window</field> -->
             <field name="res_model">lxb.subject</field>
-            <field name="view_type">form</field>
+            <!-- <field name="view_type">form</field> -->
             <field name="view_mode">tree,form</field>
-            <field name="domain">[]</field>
-            <field name="context">{}</field>
+            <!-- <field name="domain">[]</field>
+            <field name="context">{}</field> -->
 
-        <record model="ir.actions.act_window.view" id="act_open_lxb_subject_view_from">
+        <!-- <record model="ir.actions.act_window.view" id="act_open_lxb_subject_view_from">
             <field name="act_window_id" ref="act_open_lxb_subject_view"/>
             <field name="sequence" eval="20"/>
             <field name="view_mode">form</field>
@@ -54,6 +67,7 @@
             <field name="sequence" eval="10"/>
             <field name="view_mode">tree</field>
             <field name="view_id" ref="view_lxb_subject_tree"/>
+        </record> -->
         </record>
 
 
