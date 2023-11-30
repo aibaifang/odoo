@@ -26,6 +26,7 @@
        
         'views/subject_view.xml',
         'views/subject_menu_view.xml',
+        'views/teacher_view.xml',
         'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode

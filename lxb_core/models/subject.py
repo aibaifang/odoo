@@ -13,11 +13,6 @@ class LxbSubject(models.Model):
                                     ], string='科⽬类型', default='compulsory', required=True)
   _sql_constraints = [('unique_subject_code','unique(code)','科目编码必须唯一！')]
 
-  @api.depends('code')
-  def _check_code(self):
-    for record in self:
-      record.code = record.code.upper()
-      rturn
 
   
   
