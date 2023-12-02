@@ -19,14 +19,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','hr'],
 
     # always loaded
     'data': [
-       
+        'views/teacher_view.xml',
         'views/subject_view.xml',
         'views/subject_menu_view.xml',
-        'views/teacher_view.xml',
         'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode

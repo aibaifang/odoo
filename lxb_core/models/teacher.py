@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class LxbTeacher(models.Model):
     _name = "lxb.teacher"
@@ -18,8 +19,8 @@ class LxbTeacher(models.Model):
     last_login = fields.Datetime(string='最后登录', related='partner_id.user_id.login_date', readonly=1)
     emp_id = fields.Many2one('hr.employee', string='员工',)
     company_id = fields.Many2one('res.company', string='公司', default=lambda self: self.env.user.company_id)
-    teacher_subject_ids = fields.Many2many('lxb.teacher.subject', string='可授科目')
-
+    teacher_subject_ids = fields.Many2many('lxb.subject', string='可授科目')
+    _logger.info(f"dfdfdfdf{teacher_subject_ids}")
     @api.constrains('birth_date')
     def _check_birth_date(self):
         for record in self:

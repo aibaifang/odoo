@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record model="ir.ui.view" id="kanban_view_teacher">
-            <field nmae="name">教师看板</field>
+        <!-- <record model="ir.ui.view" id="kanban_view_teacher">
+            <field nmae="name">教师</field>
             <field name="model">lxb.teacher</field>
             <field name="arch" type="xml">
                 <kanban class="o_res_partner_kanban">
-                    <field nmae="id"/>
-                    <field name="image_128"/>
+                    <field name="id"/>
+                    <field name="image"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_res_partner_kanban">
@@ -50,60 +50,58 @@
                     </t>
                 </templates>
             </field>
-        </record>
+        </record> -->
         
-        <record model="ir.ui.view" id="tearch_view_tree">
-            <field name="name">tearch_view_tree</field>
-            <field name="model">lxb.tearch</field>
+        <record model="ir.ui.view" id="teacher_view_tree">
+            <field name="name">teacher_view_tree</field>
+            <field name="model">lxb.teacher</field>
             <field name="arch" type="xml">
-                <tree string="Tearch">
-                    <field name="name"/>
-                    <field name="partner_id"/>
-                    <field name="birth_date"/>
+                <tree string="Teacher">
+                    <field name="emp_id"/>
                     <field name="gender"/>
+                    <field name="birth_date"/>
+                    <field name="teacher_subject_ids"/>
+                    <field name="partner_id"/>
                     <field name="nationality"/>
                     <field name="emergency_contact"/>
-                    <field name="emp_id"/>
                     <field name="company_id"/>
-                    <field name="teacher_subject_ids"/>
+                    
                 </tree>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="tearch_view_form">
+        <record model="ir.ui.view" id="teacher_view_form">
             <field name="name">tearch_view_form</field>
-            <field name="model">lxb.teachere</field>
+            <field name="model">lxb.teacher</field>
             <field name="arch" type="xml">
                 <form string="Tearch">
                     <sheet>
-                        <div class="left">
+                        <group>
                             <group>
-                                <field name="name"/>
-                                <field name="partner_id"/>
-                                <field name="birth_date"/>
+                                <!-- <field name="name"/> -->
+                                <field name="emp_id"/>
                                 <field name="gender"/>
+                                <field name="birth_date"/>
+                                <field name="partner_id"/>
                                 <field name="nationality"/>
                             </group>
-                        </div>
-                        <div class="right">
                             <group>
                                 <field name="emergency_contact"/>
-                                <field name="emp_id"/>
                                 <field name="company_id"/>
-                                <field name="teacher_subject_ids"/>
+                                <field name="teacher_subject_ids" widget="many2many_tags"/>
                                 <field name="login"/>
                                 <field name="last_login"/>
                             </group>
-                        </div>
+                        </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record model="ir.action.act_window" id="teacher_view_action">
-            <field name="name">teacher</field>
+        <record model="ir.actions.act_window" id="teacher_view_action" >
+            <field name="name">教师管理</field>
             <field name="res_model">lxb.teacher</field>
-            <field name="view_model">kanban,tree,form</field>
+            <field name="view_mode">tree,form</field>
         </record>
     </data>
 </odoo>
