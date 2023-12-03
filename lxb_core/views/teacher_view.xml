@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- <record model="ir.ui.view" id="kanban_view_teacher">
-            <field nmae="name">教师</field>
+        <record id="kanban_view_teacher_2" model="ir.ui.view">
+            <field name="name">lxb.teacher</field>
             <field name="model">lxb.teacher</field>
             <field name="arch" type="xml">
-                <kanban class="o_res_partner_kanban">
-<<<<<<< HEAD
+                <kanban class="o_kanban_mobile">
                     <field name="id"/>
-                    <field name="image"/>
-=======
-                    <field nmae="id"/>
-                    <field name="image_128"/>
->>>>>>> origin/main
+                    <!-- <field name="image_256"/> -->
+                    <field name="emp_id"/>
+                    <!-- <field name="gender"/> -->
+                    <field name="emergency_contact"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div class="oe_kanban_global_click o_res_partner_kanban">
+                            <div t-attf-class="oe_kanban_global_click">
                                 <div class="o_kanban_image">
-                                    <t t-if="record.image.value">
-                                        <img t-att-src="kanban_image('lxb.teacher', 'image', record.id.value"/>
+                                    <!-- <t t-if="record.image_256.value">
+                                        <img t-att-src="kanban_image('lxb.teacher', 'image_256', record.gender.raw_value)"/>
                                     </t>
-                                    <t t-if="!record.image.value">
+                                    <t t-if="!record.image_256.value">
                                         <img t-att-src='_s + "/base/static/src/img/avatar.png"'/>
-                                    </t>
+                                    </t> -->
                                 </div>
                                 <div class="o_kanban_content">
                                     <h4>
-                                        <a type="open"/>
-                                            <field name="name"/>
+                                        <a type="open">
+                                            <field name="emp_id"/>
                                         </a>
                                     </h4>
                                     <ul>
-                                        <li t-if="record.contact_address.raw_value">
-                                            <field name="contact_address"/>
+                                        <li t-if="record.emergency_contact.raw_value">
+                                            <t t-out="record.emergency_contact.value"/>
                                         </li>
                                         <li t-if="record.mobile.raw_value">
                                             <field name="mobile"/>
@@ -50,12 +48,17 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <div class="row">
+                                    <!-- <div class="col-12">
+                                        <strong><t t-esc="record.gender.value"/></strong>
+                                    </div> -->
+                                </div>
                             </div>
-                        </div>
-                    </t>
-                </templates>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
-        </record> -->
+        </record>
         
         <record model="ir.ui.view" id="teacher_view_tree">
             <field name="name">teacher_view_tree</field>
@@ -70,21 +73,18 @@
                     <field name="nationality"/>
                     <field name="emergency_contact"/>
                     <field name="company_id"/>
-                    
                 </tree>
             </field>
         </record>
 
         <record model="ir.ui.view" id="teacher_view_form">
             <field name="name">tearch_view_form</field>
-<<<<<<< HEAD
             <field name="model">lxb.teacher</field>
             <field name="arch" type="xml">
                 <form string="Tearch">
                     <sheet>
                         <group>
                             <group>
-                                <!-- <field name="name"/> -->
                                 <field name="emp_id"/>
                                 <field name="gender"/>
                                 <field name="birth_date"/>
@@ -99,47 +99,26 @@
                                 <field name="last_login"/>
                             </group>
                         </group>
-=======
-            <field name="model">lxb.teachere</field>
-            <field name="arch" type="xml">
-                <form string="Tearch">
-                    <sheet>
-                        <div class="left">
-                            <group>
-                                <field name="name"/>
-                                <field name="partner_id"/>
-                                <field name="birth_date"/>
-                                <field name="gender"/>
-                                <field name="nationality"/>
-                            </group>
-                        </div>
-                        <div class="right">
-                            <group>
-                                <field name="emergency_contact"/>
-                                <field name="emp_id"/>
-                                <field name="company_id"/>
-                                <field name="teacher_subject_ids"/>
-                                <field name="login"/>
-                                <field name="last_login"/>
-                            </group>
-                        </div>
->>>>>>> origin/main
                     </sheet>
                 </form>
             </field>
         </record>
 
-<<<<<<< HEAD
+        <record model="ir.ui.view" id="teacher_view_search">
+            <field name="name">teacher_view_search</field>
+            <field name="model">lxb.teacher</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="emp_id"/>
+                     <field name="nationality"/>
+                </search>
+            </field>
+        </record>
+                    
         <record model="ir.actions.act_window" id="teacher_view_action" >
             <field name="name">教师管理</field>
             <field name="res_model">lxb.teacher</field>
-            <field name="view_mode">tree,form</field>
-=======
-        <record model="ir.action.act_window" id="teacher_view_action">
-            <field name="name">teacher</field>
-            <field name="res_model">lxb.teacher</field>
-            <field name="view_model">kanban,tree,form</field>
->>>>>>> origin/main
+            <field name="view_mode">kanban,tree,form</field>
         </record>
     </data>
 </odoo>
