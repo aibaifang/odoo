@@ -1,5 +1,6 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -20,12 +21,12 @@ class LxbTeacher(models.Model):
     emp_id = fields.Many2one('hr.employee', string='员工',)
     company_id = fields.Many2one('res.company', string='公司', default=lambda self: self.env.user.company_id)
     teacher_subject_ids = fields.Many2many('lxb.subject', string='可授科目')
-    _logger.info(f"dfdfdfdf{teacher_subject_ids}")
     @api.constrains('birth_date')
     def _check_birth_date(self):
         for record in self:
+           # _logger.info(f"dfdfdfdf{record.birth_date}")
             if record.birth_date > fields.Date.today():
-                raise ValidationError(_('出生日期不能晚于当前日期！'))
+                raise ValidationError('出生日期不能晚于当前日期！')
     
 
 

@@ -65,6 +65,12 @@
             <field name="model">lxb.teacher</field>
             <field name="arch" type="xml">
                 <tree string="Teacher">
+                    <!-- 指定那些用户组可以访问该视图 -->
+                    <header groups="lxb_core.group_lxb_back_office_admin">  
+                        <button name="%(teacher_create_employee_act)d" string="新建员工" type="action" class=" oe_highlight" 
+                        attrs="{'invisible':[('emp_id', '!=', False)]}"/>
+                    </header>
+ 
                     <field name="emp_id"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
