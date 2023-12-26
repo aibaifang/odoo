@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_lxb_subject,lxb.subject,model_lxb_subject,base.group_user,1,1,1,1
 access_lxb_teacher,lxb.teacher,model_lxb_teacher,base.group_user,1,1,1,1
 access_lxb_teacher_create_employee,wizard.lxb.teacher.employee,model_wizard_lxb_teacher_employee,base.group_user,1,1,1,1
+access_lxb_class,lxb.class,model_lxb_class,base.group_user,1,1,1,1
+access_lxb_student,lxb.student,model_lxb_student,base.group_user,1,1,1,1

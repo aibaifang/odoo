@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tree_lxb_student" model="ir.ui.view">
+            <field name="name">lxb.student.view_tree</field>
+            <field name="model">lxb.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="gender"/>
+                    <field name="class_id"/>
+                    <field name="birth_date"/>
+                    <field name="gr_no"/>
+                    <!-- <field name="id_card"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_form_lxb_student" model="ir.ui.view">
+            <field name="name">lxb.student.view.form</field>
+            <field name="model">lxb.student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="gender"/>
+                                <field name="class_id"/>
+                                <field name="birth_date"/>
+                                <field name="gr_no"/>
+                                <!-- <field name="id_card"/>  -->
+                                <field name="emergency_contact"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_lxb_student" model="ir.actions.act_window">
+            <field name="name">学生</field>
+            <field name="res_model">lxb.student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
+    
+
+
+
+  

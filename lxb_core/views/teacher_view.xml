@@ -66,19 +66,17 @@
             <field name="arch" type="xml">
                 <tree string="Teacher">
                     <!-- 指定那些用户组可以访问该视图 -->
-                    <header groups="lxb_core.group_lxb_back_office_admin">  
-                        <button name="%(teacher_create_employee_act)d" string="新建员工" type="action" class=" oe_highlight" 
-                        attrs="{'invisible':[('emp_id', '!=', False)]}"/>
-                    </header>
- 
+                   
                     <field name="emp_id"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
                     <field name="teacher_subject_ids"/>
+                    <field name="phone"/>
                     <field name="partner_id"/>
                     <field name="nationality"/>
                     <field name="emergency_contact"/>
                     <field name="company_id"/>
+                    <field name="id_number"/>
                 </tree>
             </field>
         </record>
@@ -88,14 +86,20 @@
             <field name="model">lxb.teacher</field>
             <field name="arch" type="xml">
                 <form string="Tearch">
+                    <header>  
+                        <button name="%(teacher_create_employee_act)d" string="新建员工" type="action" class=" oe_highlight" 
+                        attrs="{'invisible':[('emp_id', '!=', False)]}"/>
+                    </header>    
                     <sheet>
                         <group>
                             <group>
                                 <field name="emp_id"/>
                                 <field name="gender"/>
                                 <field name="birth_date"/>
+                                <field name="phone" class="o_force_ltr"/>
                                 <field name="partner_id"/>
                                 <field name="nationality"/>
+                                <field name="id_number"/>
                             </group>
                             <group>
                                 <field name="emergency_contact"/>
@@ -124,7 +128,7 @@
         <record model="ir.actions.act_window" id="teacher_view_action" >
             <field name="name">教师管理</field>
             <field name="res_model">lxb.teacher</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
         </record>
     </data>
 </odoo>

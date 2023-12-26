@@ -1,0 +1,68 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Class -->
+        <record id="view_lxb_class_tree" model="ir.ui.view">
+            <field name="name">lxb.class.tree</field>
+            <field name="model">lxb.class</field>
+            <field name="arch" type="xml">
+                <tree string="Class">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="class_advisor" widget="many2one"/>
+                    <!-- <field name="student_no"/> -->
+                    <!-- <field name="class_nospecific_site"/> -->
+                    <field name="company_id"/>
+                    <!-- <field name="schedule_id"/> -->
+                </tree>
+            </field>
+        </record>
+            
+        <record id="view_lxb_class_from" model="ir.ui.view">
+            <field name="name">lxb.class.form</field>
+            <field name="model">lxb.class</field>
+            <field name="arch" type="xml">
+                <form string="Class">
+                    <div class="oe_title">
+                        <!-- <field name="already_partner"/> -->
+                        <label for="name" string="老学员？" class="o_form_label"/>
+                        <!-- <field name="partner_id" placeholder="partner" options="{'no_create_edit': True}"
+                                attrs="{'required': [('already_partner', '=', True)], 
+                                'invisible': [('already_partner', '=', False)]}"/> -->
+                    </div>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="class_advisor"/>
+                            <!-- <field name="student_no"/> -->
+                            <field name="company_id"/>
+                        </group>
+                        <group string="详细地址">
+                            <field name="specific_site" nolabel="1"/>
+                        </group>
+                        <!-- <group string="学生">
+                            <field name="student_ids" nolabel="1" widget= "one2many_list" mode="tree,kanban">
+                                <tree string="学生" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="id"/>
+                                    <field name="gr_no"/>
+                                    <field name="company_id"/>
+                                </tree>
+                            </field>
+                        </group> -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_class_action" model="ir.actions.act_window">
+            <field name="name">班级</field>
+            <field name="res_model">lxb.class</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
+
+

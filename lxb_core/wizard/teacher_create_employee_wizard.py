@@ -1,4 +1,6 @@
-from odoo import models, api, fields, 
+from odoo import models, api, fields
+import logging
+_logger = logging.getLogger(__name__)
 
 class WizardLxbTeacherEmployee(models.TransientModel):
     _name = 'wizard.lxb.teacher.employee'
@@ -11,6 +13,7 @@ class WizardLxbTeacherEmployee(models.TransientModel):
     def create_employee(self):
         for record in self:
             active_id = self.env.context.get('active_ids', []) or []
+            _logger.info("active_id: %s" % active_id)
             teacher = self.env['lxb.teacher'].browse(active_id)
             teacher.create_employee()
             if record.user_boolean and not teacher.user_id:

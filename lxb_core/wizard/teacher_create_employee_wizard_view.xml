@@ -20,6 +20,7 @@
         <record model="ir.actions.act_window" id="teacher_create_employee_act">
             <field name="name">新建雇员</field>
             <field name="res_model">wizard.lxb.teacher.employee</field>
+            <!-- <field name="view_type">form</field> -->
             <field name="view_mode">form</field>
             <field name="view_id" ref="lxb_teacher_create_employee_view"/>
             <!-- <field name="context">{}</field> -->
